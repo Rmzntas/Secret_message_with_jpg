@@ -1,60 +1,49 @@
-# Hidden Message With JPG
+ ## Steganography 
 
-This project contains a sample application written in Python. This application allows you to embed a hidden message into a JPEG (JPG) file and extract the hidden message from the file.
+This code uses Python to hide a message inside an image using steganography. 
 
-## Usage
+### Step-by-step explanation
 
-1. First, create a file named `main.py` in the same directory where the `secret.py` file containing the `Message` class is located.
+Before using the application, ensure that the `PIL` (Python Imaging Library) library is installed. If it's not installed, you can install it using the following command:
 
-2. Before using the application, ensure that the `PIL` (Python Imaging Library) library is installed. If it's not installed, you can install it using the following command:
+```
+pip install pillow
+```
 
-    ```
-    pip install pillow
-    ```
+First, we import the `Message` class from the `secret` module. 
 
-3. Open the `main.py` file and follow these steps:
+```python
+from secret import Message
+```
 
-    a. Import the `Message` class from the `secret` module:
+Next, we create a `Message` object, passing in the path to the image we want to use.
 
-    ```python
-    from secret import Message
-    ```
+```python
+message = Message("image.jpg")  # path of image
+```
 
-    b. Create an instance of the `Message` class, specifying the path of the JPG file where you want to store the hidden message:
+We can then use the `write()` method to write a message to the image. The message will be converted to bytes before being written to the image.
 
-    ```python
-    message = Message("image.jpg")  # Path to the JPG file
-    ```
-    
-    c. Use the `read` method to extract the hidden message from the file:
+```python
+message.write("Hidden Leaf")  
+```
 
-    ```python
-    message.read()
-    ```
+The `read()` method can be used to read the message from the image. The message will be returned as a string.
 
-    d. Use the `write` method to embed the hidden message into the file:
+```python
+message.read()
+```
 
-    ```python
-    message.write("Your Hidden Message")
-    ```
+Finally, the `ReSeT()` method can be used to remove the message from the image.
 
-    e. Use the `ReSeT` method to reset the file and delete the hidden message:
+### Conclusion
 
-    ```python
-    message.ReSeT()
-    ```
-
-4. After read, write or deleting message, you can use the application by running the `main.py` file:
-
-    ```
-    python main.py
-    ```
+This code provides a simple example of how to use steganography to hide a message inside an image.
 
 ## Notes
 
 - Writing this message does not harm the jpg file.
 - It only works on images in jpg format.
-
 
 ## License
 
